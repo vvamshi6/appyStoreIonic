@@ -1,0 +1,19 @@
+<ion-view>
+  <ion-content class="background">
+    <h1>ContentCtrl</h1>
+    <ion-scroll direction="x">
+      <div class="row">
+        <div style="display: inline-block " ng-repeat="x in data">
+          <div>
+            <div class="card card-1 col item item-divider">
+              <img style='border-radius: 10%;' ng-src='{{x.image_path}}' width="265" />
+              <p>{{x.title}}</p>
+              <br>
+            </div>
+          </div>
+        </div>
+    </ion-scroll>
+    <ion-infinite-scroll on-infinite="loadMore()" distance="10%">
+    </ion-infinite-scroll>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,21 @@
+<ion-view class="background">
+<ion-content>
+  <!-- <h1>Ionic</h1> -->
+<div  carousel3d
+    ng-model="slides" options = "options">
+    <div class = "img-responsive" carousel3d-slide ng-repeat="slide in slides">
+        <figure>
+          <a ng-if = "carousel3d.getCurrentIndex() === $index"
+          ui-sref="content({pcatid:slide.pcatid,catid:slide.catid})">
+          <img ng-src="{{slide.src}}" alt=""/></a>
+          <img ng-if = "carousel3d.getCurrentIndex() !== $index" ng-src="{{slide.src}}"/>
+          <!-- <a ng-attr-href="{{carousel3d.getCurrentIndex() === $index ? '#content' : undefined}}">
+            <img ng-src="{{slide.src}}"/>
+          </a> -->
+            <!-- <a href="#content"><img ng-src="{{slide.src}}"/></a> -->
+            <figcaption ng-bind="slide.caption"></figcaption>
+        </figure>
+    </div>
+</div>
+</ion-content>
+</ion-view>
