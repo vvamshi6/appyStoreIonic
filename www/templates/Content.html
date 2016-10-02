@@ -1,11 +1,24 @@
+<!--
+* FileName:Content.html
+* CreatedBy: Vamsee
+* Date :01-09-2016
+* Purpose : User interface for displaying Contentlist
+ -->
 <ion-view>
+  <!-- Ion content in which entrie content present -->
   <ion-content class="background">
-    <h1>ContentCtrl</h1>
+    <!-- <h1>ContentCtrl</h1> -->
     <ion-scroll direction="x">
+
       <div class="row">
         <div style="display: inline-block " ng-repeat="x in data">
+          <!-- <div class = "list card">
+            <div class = "item item-image">
+              <img src = "{{x.image_path}}">
+            </div>
+          </div> -->
           <div>
-            <div class="card card-1 col item item-divider">
+            <div class="cards4 card-1 col item item-divider">
               <img style='border-radius: 10%;' ng-src='{{x.image_path}}' width="265" />
               <p>{{x.title}}</p>
               <br>

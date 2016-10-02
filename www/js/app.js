@@ -1,8 +1,10 @@
-// Ionic Starter App
-
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
+/*
+* FileName:app.js
+* CreatedBy: Vamsee
+* Date :16-09-2016
+* Purpose : Main Routing application for ionic app
+*/
+/*Creating appystore module by using module function and adding required dependencies*/
 angular.module('appyStore', ['ionic','appyStore.controllers','appyStore.services','angular-carousel-3d','ngTouch'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -21,17 +23,21 @@ angular.module('appyStore', ['ionic','appyStore.controllers','appyStore.services
     }
   });
 })
+/*config method for routing and differnet states in routing*/
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
+  /*Categories state for displaying the Category list*/
   .state('categories', {
     url: '/categories',
     templateUrl: 'templates/Categories.html',
     controller:'categoryCtrl'
   })
+  /*Content state for displaying the Content list*/
   .state('content', {
     url: '/content/?pcatid?catid',
     templateUrl: 'templates/Content.html',
     controller: 'contentCtrl'
   });
+  /*Default url for the Routing*/
   $urlRouterProvider.otherwise('/categories');
 });
