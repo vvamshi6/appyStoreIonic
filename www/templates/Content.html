@@ -6,27 +6,26 @@
  -->
 <ion-view>
   <!-- Ion content in which entrie content present -->
-  <ion-content class="background">
+  <ion-content class="background" overflow-scroll="true">
     <!-- <h1>ContentCtrl</h1> -->
+    <img ui-sref = "categories" ng-src = "Optimised_icons_all-sizes/drawable-mdpi/Button_14_back-min.png">
+<!-- <b style="text-align:center;color:white;font-size:45">{{caption}}</b> -->
+<img style = "float:right" ng-src = "Optimised_icons_all-sizes/drawable-mdpi/Button_6_search-min.png">
     <ion-scroll direction="x">
-
       <div class="row">
         <div style="display: inline-block " ng-repeat="x in data">
-          <!-- <div class = "list card">
-            <div class = "item item-image">
-              <img src = "{{x.image_path}}">
-            </div>
-          </div> -->
           <div>
-            <div class="cards4 card-1 col item item-divider">
-              <img style='border-radius: 10%;' ng-src='{{x.image_path}}' width="265" />
+            <div class="card card-1 col item item-divider">
+              <img style='border-radius: 10%;' ng-src='{{x.image_path}}' width="265"/>
+              <span class="icon videoIcon playS"></span>
+              <span class="moreIcon"></span>
               <p>{{x.title}}</p>
               <br>
             </div>
           </div>
         </div>
     </ion-scroll>
-    <ion-infinite-scroll on-infinite="loadMore()" distance="10%">
+    <ion-infinite-scroll  on-infinite="loadMore()" distance="10%">
     </ion-infinite-scroll>
   </ion-content>
 </ion-view>

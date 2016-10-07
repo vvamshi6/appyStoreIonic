@@ -8,6 +8,15 @@
   <!-- Ion content directive which contains the user data -->
 <ion-content>
   <!-- Carousel3d directive for displaying the carousel in 3d format -->
+  <!-- <nav>
+    <ul>
+      <img class = "float:left" src = 'Optimised_icons_all-sizes/drawable-xxxhdpi/Button_7_menu_on-min.png' height="50" width="50">
+      <img class = "float_center" src = 'Optimised_icons_all-sizes/drawable-xxxhdpi/Button_5_history_on-min.png' height="50" width="50">
+      <img style="float:right" src = 'Optimised_icons_all-sizes/drawable-xxxhdpi/Button_6_search-min.png' height="50" width="50">
+      <img style="float:right" src = 'Optimised_icons_all-sizes/drawable-xxxhdpi/Button_4_audio-min.png' height="50" width="50">
+    </ul>
+  </nav> -->
+  <div ng-include = "'templates/header.html'"></div>
 <div  carousel3d
     ng-model="slides" options = "options">
     <!-- Repeating through the slides object which contains images -->
@@ -26,5 +35,7 @@
         </figure>
     </div>
 </div>
+<div ng-include = "'templates/footer.html'">
 </ion-content>
+
 </ion-view>
