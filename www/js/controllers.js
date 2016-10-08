@@ -24,7 +24,7 @@ angular.module('appyStore.controllers',[])
            perspective: 35,
            startSlide: 0,
            border: 0,
-           dir: 'rtl',
+           dir: 'ltr',
            width: 290,
            height: 200,
            space: 220,
@@ -36,7 +36,7 @@ angular.module('appyStore.controllers',[])
        /*Iterating through the result and adding the imageurls to the slides array*/
        angular.forEach($scope.result,function(i){
                      $scope.slides.push({'src': i.image_path['50x50'],
-                     'caption':i.category_name,'catid':i.category_id,'pcatid':i.parent_category_id});
+                     'caption':i.category_name,'catid':i.category_id,'pcatid':i.parent_category_id,'count':i.content_count});
                    })
                    console.log($scope.slides);
   	});
@@ -44,10 +44,13 @@ angular.module('appyStore.controllers',[])
 /*Creating the contentCtrl for showing the contentlist*/
 .controller('contentCtrl',function($scope,$http,ContentService,$stateParams){
   /*Taking categoryid and parent_category_id via stateParams to the scope object*/
+  $scope.noMoreItemsAvailable = false;
   $scope.catid = $stateParams.catid;
   $scope.pcatid = $stateParams.pcatid;
+  $scope.count = $stateParams.count;
   var catid = $scope.catid;
   var pcatid = $scope.pcatid;
+  var count = $scope.count;
   console.log('contentCtrl');
   /*Url which contains the content list*/
   var url = 'http://beta.appystore.in/appy_app/appyApi_handler.php?method=getContentList&content_type=videos&limit=4&offset=0&catid='+catid+'&pcatid='+pcatid+'&age=1.5&incl_age=5';
@@ -62,14 +65,22 @@ angular.module('appyStore.controllers',[])
   });
   /*Load more function for loading more items*/
   $scope.loadMore = function() {
+
      offset = offset+4;
      var url = 'http://beta.appystore.in/appy_app/appyApi_handler.php?method=getContentList&content_type=videos&limit=4&offset='+offset+'&catid='+catid+'&pcatid='+pcatid+'&age=1.5&incl_age=5';
     console.log(url);
     /*Content service for calling the RestApi*/
     ContentService.getData(url).then(function(data){
+      if ( $scope.data.length == count ) {
+        console.log(count);
+      $scope.noMoreItemsAvailable = true;
+      }
+      if($scope.data.length > 1){
       $scope.data = $scope.data.concat(data.data.Responsedetails.data_array);
-      $scope.$broadcast('scroll.infiniteScrollComplete');
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+      // $scope.$broadcast('scroll.infiniteScrollComplete');
       console.log($scope.data);
+      }
     });
  };
 })

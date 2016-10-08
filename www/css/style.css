@@ -217,7 +217,7 @@ and (orientation:landscape){
     float: right;
     top:10px;
     position: relative;
-    left: -20%; /* or right 50% */
+    left: -25%; /* or right 50% */
     text-align: center;
   }
 }
