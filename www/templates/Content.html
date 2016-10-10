@@ -13,12 +13,12 @@
 <img style = "float:right" ng-src = "Optimised_icons_all-sizes/drawable-mdpi/Button_6_search-min.png">
     <ion-scroll direction="x">
       <div class="row">
-        <div style="display: inline-block " ng-repeat="x in data track by $index">
+        <div style="display: inline-block " ng-if = "x != undefined" ng-repeat="x in data track by $index">
           <div>
             <div class="card card-1 col item item-divider">
               <img style='border-radius: 10%;' ng-src='{{x.image_path}}' width="265"/>
               <span class="icon videoIcon playS"></span>
-              <span class="moreIcon"></span>
+              <span class="moreIcon" ng-click="popover.show($event)"></span>
               <p>{{x.title}}</p>
               <br>
             </div>

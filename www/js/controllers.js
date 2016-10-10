@@ -42,7 +42,7 @@ angular.module('appyStore.controllers',[])
   	});
 })
 /*Creating the contentCtrl for showing the contentlist*/
-.controller('contentCtrl',function($scope,$http,ContentService,$stateParams){
+.controller('contentCtrl',function($scope,$http,ContentService,$stateParams,$ionicPopover){
   /*Taking categoryid and parent_category_id via stateParams to the scope object*/
   $scope.noMoreItemsAvailable = false;
   $scope.catid = $stateParams.catid;
@@ -56,6 +56,11 @@ angular.module('appyStore.controllers',[])
   var url = 'http://beta.appystore.in/appy_app/appyApi_handler.php?method=getContentList&content_type=videos&limit=4&offset=0&catid='+catid+'&pcatid='+pcatid+'&age=1.5&incl_age=5';
   console.log(url);
   var offset = 0;
+  $ionicPopover.fromTemplateUrl('templates/popover.html', {
+   scope: $scope,
+ }).then(function(popover) {
+   $scope.popover = popover;
+ });
   /*Calling the Rest api using ContentService*/
   ContentService.getData(url).then(function(data){
     /*Response from ContentService*/
@@ -75,12 +80,12 @@ angular.module('appyStore.controllers',[])
         console.log(count);
       $scope.noMoreItemsAvailable = true;
       }
-      if($scope.data.length > 1){
+      // if($scope.data.length > 1){
       $scope.data = $scope.data.concat(data.data.Responsedetails.data_array);
         $scope.$broadcast('scroll.infiniteScrollComplete');
       // $scope.$broadcast('scroll.infiniteScrollComplete');
       console.log($scope.data);
-      }
+      // }
     });
  };
 })

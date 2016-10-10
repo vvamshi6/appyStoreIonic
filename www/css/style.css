@@ -1,4 +1,14 @@
 /* Empty. Add your own CSS if you like */
+ion-popover-view.fit ion-content {
+  position: absolute;
+}
+.scroll-view.scroll-x {
+    overflow-x: hidden;  /* default value is 'scroll' */
+}
+.scroll-bar-indicator
+{
+	display: none;
+}
 .img-responsive{
   -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -72,12 +82,14 @@
     /*background-position: 0 -2495px;*/
 }
 .moreIcon{
-  background-image : url('../Optimised_icons_all-sizes/drawable-xxxhdpi/Button_27_more-min.png')
+  background-image : url('../Optimised_icons_all-sizes/drawable-hdpi/Button_27_more-min.png');
+  background-repeat : no-repeat;
+  top:160px; right:-50px;
   height: 48px;
   width: 88px;
   display: inline-block;
   position: absolute;
-  left: 0;
+  right: 100;
   bottom: 0;
 }
 .search_button{
