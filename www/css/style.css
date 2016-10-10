@@ -1,19 +1,32 @@
 /* Empty. Add your own CSS if you like */
-ion-popover-view.fit ion-content {
-  position: absolute;
+ion-popover-view.fit {
+  height: auto;
 }
-.scroll-view.scroll-x {
-    overflow-x: hidden;  /* default value is 'scroll' */
+
+ion-popover-view.fit ion-content {
+  position: relative;
+}
+
+.platform-android ion-popover-view.fit {
+  margin-top: 10px;
+}
+
+.platform-ios ion-popover-view.fit {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+/* default value is 'scroll' */
+/*.scroll-view.scroll-x {
+    overflow-x: hidden;
 }
 .scroll-bar-indicator
 {
 	display: none;
-}
+}*/
 .img-responsive{
   -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
-
 }
 .footer_kart{
   top:500px;
@@ -262,7 +275,6 @@ and (orientation:portrait) {
     text-align: center;
   }
 }
-
 @media only screen
 and (min-height: 412px)
 and (max-height: 435px)

@@ -42,7 +42,7 @@ angular.module('appyStore.controllers',[])
   	});
 })
 /*Creating the contentCtrl for showing the contentlist*/
-.controller('contentCtrl',function($scope,$http,ContentService,$stateParams,$ionicPopover){
+.controller('contentCtrl',function($scope,$http,ContentService,$stateParams,$ionicPopover,$sce,$location, $ionicHistory){
   /*Taking categoryid and parent_category_id via stateParams to the scope object*/
   $scope.noMoreItemsAvailable = false;
   $scope.catid = $stateParams.catid;
@@ -51,6 +51,16 @@ angular.module('appyStore.controllers',[])
   var catid = $scope.catid;
   var pcatid = $scope.pcatid;
   var count = $scope.count;
+  if($stateParams.poster){
+    console.log($stateParams.poster);
+    $scope.poster = $stateParams.poster;
+  }
+  if($stateParams.url){
+    var url = $stateParams.url;
+    url = $sce.trustAsResourceUrl(url);
+    $scope.url = url;
+    console.log(url);
+  }
   console.log('contentCtrl');
   /*Url which contains the content list*/
   var url = 'http://beta.appystore.in/appy_app/appyApi_handler.php?method=getContentList&content_type=videos&limit=4&offset=0&catid='+catid+'&pcatid='+pcatid+'&age=1.5&incl_age=5';
@@ -68,6 +78,27 @@ angular.module('appyStore.controllers',[])
     console.log($scope.data);
     console.log(data.data.Responsedetails.data_array);
   });
+  $scope.myGoBack = function() {
+	      $ionicHistory.goBack();
+  };
+  $scope.changeUrl = function(url,poster){
+    console.log(url);
+    url = $sce.trustAsResourceUrl(url);
+    $scope.url = url;
+    var video = document.getElementById("myVideo")
+    console.log(poster);
+    isSupp = video.canPlayType("video/mp4");
+      if (isSupp == "") {
+      video.src = "movie.ogg";
+  } else {
+      video.src = url;
+      video.poster = poster;
+  }
+  video.load();
+    if(video){
+      console.log("Id is found");
+    }
+  }
   /*Load more function for loading more items*/
   $scope.loadMore = function() {
 

@@ -27,7 +27,6 @@ angular.module('appyStore', ['ionic','appyStore.controllers','appyStore.services
 .config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
   if (ionic.Platform.isAndroid())
        $ionicConfigProvider.scrolling.jsScrolling(false);
-
   $stateProvider
   /*Categories state for displaying the Category list*/
   .state('categories', {
@@ -40,6 +39,11 @@ angular.module('appyStore', ['ionic','appyStore.controllers','appyStore.services
     url: '/content/?pcatid?catid?count',
     templateUrl: 'templates/Content.html',
     controller: 'contentCtrl'
+  })
+  .state('player', {
+                url: '/player?url?poster?pcatid?catid?count',
+                templateUrl: 'templates/videoPlayer.html',
+                controller: 'contentCtrl'
   });
   /*Default url for the Routing*/
   $urlRouterProvider.otherwise('/categories');

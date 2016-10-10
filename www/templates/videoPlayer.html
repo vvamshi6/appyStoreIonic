@@ -1,0 +1,30 @@
+<ion-view>
+  <ion-content>
+    <img ng-click = "myGoBack()" ng-src = "Optimised_icons_all-sizes/drawable-mdpi/Button_14_back-min.png">
+    <img style = "float:right" ng-src = "Optimised_icons_all-sizes/drawable-mdpi/Button_6_search-min.png">
+
+    <center>
+    <div class = "container">
+        <video id='myVideo' width="350" controls poster="{{poster}}">
+            <source ng-src="{{url}}" type="video/mp4">
+        </video>
+    </div>
+</center>
+<ion-scroll direction="x">
+  <div class="row">
+    <div style="display: inline-block " ng-if = "x != undefined" ng-repeat="x in data track by $index">
+      <div>
+        <div class="card card-1 col item item-divider">
+          <img class = "img1 icon" style='border-radius: 10%;' ng-src='{{x.image_path}}' width="265"/>
+          <span ng-click="changeUrl(x.dnld_url,x.image_path)" class="icon videoIcon playS"></span>
+          <span class="moreIcon" ng-click="popover.show($event)"></span>
+          <p style="width:21em;text-wrap:normal;">{{x.title}}</p>
+          <br>
+        </div>
+      </div>
+    </div>
+</ion-scroll>
+<ion-infinite-scroll ng-if="!noMoreItemsAvailable"  on-infinite="loadMore()" distance="10%">
+</ion-infinite-scroll>
+</ion-content>
+</ion-view>

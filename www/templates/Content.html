@@ -6,20 +6,20 @@
  -->
 <ion-view>
   <!-- Ion content in which entrie content present -->
-  <ion-content class="background" overflow-scroll="true">
+  <ion-content class="background">
     <!-- <h1>ContentCtrl</h1> -->
-    <img ui-sref = "categories" ng-src = "Optimised_icons_all-sizes/drawable-mdpi/Button_14_back-min.png">
+    <img ng-click = "myGoBack()" ng-src = "Optimised_icons_all-sizes/drawable-mdpi/Button_14_back-min.png">
 <!-- <b style="text-align:center;color:white;font-size:45">{{caption}}</b> -->
 <img style = "float:right" ng-src = "Optimised_icons_all-sizes/drawable-mdpi/Button_6_search-min.png">
-    <ion-scroll direction="x">
+    <ion-scroll direction = "x">
       <div class="row">
         <div style="display: inline-block " ng-if = "x != undefined" ng-repeat="x in data track by $index">
           <div>
             <div class="card card-1 col item item-divider">
               <img style='border-radius: 10%;' ng-src='{{x.image_path}}' width="265"/>
-              <span class="icon videoIcon playS"></span>
+              <span ui-sref= "player({url:x.dnld_url,poster:x.image_path,pcatid:pcatid,catid:catid,count:count})" class="icon videoIcon playS"></span>
               <span class="moreIcon" ng-click="popover.show($event)"></span>
-              <p>{{x.title}}</p>
+              <p style = "width:21em;text-wrap:normal;">{{x.title}}</p>
               <br>
             </div>
           </div>
