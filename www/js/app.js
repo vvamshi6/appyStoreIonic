@@ -25,8 +25,8 @@ angular.module('appyStore', ['ionic','appyStore.controllers','appyStore.services
 })
 /*config method for routing and differnet states in routing*/
 .config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
-  if (ionic.Platform.isAndroid())
-       $ionicConfigProvider.scrolling.jsScrolling(false);
+  // if (ionic.Platform.isAndroid())
+  //      $ionicConfigProvider.scrolling.jsScrolling(false);
   $stateProvider
   /*Categories state for displaying the Category list*/
   .state('categories', {

@@ -4,7 +4,7 @@
 * Date :30-09-2016
 * Purpose : User interface for displaying Categorylist
  -->
-<ion-view class="background">
+<ion-view>
   <!-- Ion content directive which contains the user data -->
 <ion-content>
   <!-- Carousel3d directive for displaying the carousel in 3d format -->
@@ -17,7 +17,7 @@
     </ul>
   </nav> -->
   <div ng-include = "'templates/header.html'"></div>
-<div  carousel3d
+<div carousel3d
     ng-model="slides" options = "options">
     <!-- Repeating through the slides object which contains images -->
     <div class = "img-responsive" carousel3d-slide ng-repeat="slide in slides">

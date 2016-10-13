@@ -66,11 +66,6 @@ angular.module('appyStore.controllers',[])
   var url = 'http://beta.appystore.in/appy_app/appyApi_handler.php?method=getContentList&content_type=videos&limit=4&offset=0&catid='+catid+'&pcatid='+pcatid+'&age=1.5&incl_age=5';
   console.log(url);
   var offset = 0;
-  $ionicPopover.fromTemplateUrl('templates/popover.html', {
-   scope: $scope,
- }).then(function(popover) {
-   $scope.popover = popover;
- });
   /*Calling the Rest api using ContentService*/
   ContentService.getData(url).then(function(data){
     /*Response from ContentService*/
@@ -78,27 +73,6 @@ angular.module('appyStore.controllers',[])
     console.log($scope.data);
     console.log(data.data.Responsedetails.data_array);
   });
-  $scope.myGoBack = function() {
-	      $ionicHistory.goBack();
-  };
-  $scope.changeUrl = function(url,poster){
-    console.log(url);
-    url = $sce.trustAsResourceUrl(url);
-    $scope.url = url;
-    var video = document.getElementById("myVideo")
-    console.log(poster);
-    isSupp = video.canPlayType("video/mp4");
-      if (isSupp == "") {
-      video.src = "movie.ogg";
-  } else {
-      video.src = url;
-      video.poster = poster;
-  }
-  video.load();
-    if(video){
-      console.log("Id is found");
-    }
-  }
   /*Load more function for loading more items*/
   $scope.loadMore = function() {
 
@@ -119,4 +93,36 @@ angular.module('appyStore.controllers',[])
       // }
     });
  };
+ /*popover for ionicapp*/
+ $ionicPopover.fromTemplateUrl('templates/popover.html', {
+  scope: $scope,
+}).then(function(popover) {
+  $scope.popover = popover;
+});
+/*ionicHistory goback function to navigate to previous page*/
+$scope.myGoBack = function() {
+      $ionicHistory.goBack();
+};
+/*function to change the url of the video*/
+$scope.changeUrl = function(url,poster){
+  console.log(url);
+  /*making the url as trustAsResourceUrl*/
+  url = $sce.trustAsResourceUrl(url);
+  $scope.url = url;
+  var video = document.getElementById("myVideo")
+  console.log(poster);
+  /*checking the type of video and adding url and poster*/
+  isSupp = video.canPlayType("video/mp4");
+    if (isSupp == "") {
+    video.src = url;
+} else {
+    video.src = url;
+    video.poster = poster;
+}
+/*loading the video after changing the url*/
+video.load();
+  if(video){
+    console.log("Id is found");
+  }
+}
 })
