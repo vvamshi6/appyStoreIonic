@@ -30,7 +30,7 @@ angular.module('appyStore.controllers',[])
            space: 220,
            clicking:true,
            scrolling:true,
-           autoRotationSpeed: 10000,
+           autoRotationSpeed: 30000,
            loop: true
        }
        /*Iterating through the result and adding the imageurls to the slides array*/

@@ -2,15 +2,12 @@
 ion-popover-view.fit {
   height: auto;
 }
-
 ion-popover-view.fit ion-content {
   position: relative;
 }
-
 .platform-android ion-popover-view.fit {
   margin-top: 10px;
 }
-
 .platform-ios ion-popover-view.fit {
   padding-top: 10px;
   padding-bottom: 10px;
@@ -23,11 +20,6 @@ ion-popover-view.fit ion-content {
 #footer_kart{
   top:550px;
   position: absolute;
-}
-#cards{
-  .card{
-    width: 100px;
-  }
 }
 /* default value is 'scroll' */
 /*.scroll-view.scroll-x {
@@ -43,10 +35,10 @@ ion-popover-view.fit ion-content {
     background-size: cover;
 }
 .footer_kart{
-  top:500px;
+  top:450px;
 }
 .footer_menu{
-  top:500px
+  top:450px
 }
 .background, .background .pane,.background .item-complex .item-content {
 
@@ -71,7 +63,6 @@ ion-popover-view.fit ion-content {
   /*position: relative;*/
   width: 180px;
 }
-
 .card{
   /*background-color: white;*/
   overflow: hidden;
@@ -87,7 +78,6 @@ ion-popover-view.fit ion-content {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
 }
-
 .card-1:hover {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
@@ -229,12 +219,12 @@ and (orientation:landscape){
     text-align: center;
   }
   #footer_menu{
-    top:10px;
+    top:9px;
     position:relative;
     float:right;
   }
   #footer_kart{
-    top:10px;
+    top:9px;
     position: relative;
   }
 }
@@ -313,12 +303,12 @@ and (orientation:landscape){
     text-align: center;
   }
   #footer_menu{
-    top:10px;
+    top:9px;
     position:relative;
     float:right;
   }
   #footer_kart{
-    top:10px;
+    top:9px;
     position: relative;
   }
 }
@@ -383,12 +373,12 @@ and (orientation:landscape){
     text-align: center;
   }
   #footer_menu{
-    top:10px;
+    top:9px;
     position:relative;
     float:right;
   }
   #footer_kart{
-    top:10px;
+    top:9px;
     position: relative;
   }
 }
