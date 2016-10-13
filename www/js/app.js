@@ -5,9 +5,10 @@
 * Purpose : Main Routing application for ionic app
 */
 /*Creating appystore module by using module function and adding required dependencies*/
-angular.module('appyStore', ['ionic','appyStore.controllers','appyStore.services','angular-carousel-3d','ngTouch'])
-.run(function($ionicPlatform) {
+angular.module('appyStore', ['ionic','appyStore.controllers','appyStore.services','angular-carousel-3d','ngTouch','ImgCache'])
+.run(function($ionicPlatform,ImgCache) {
   $ionicPlatform.ready(function() {
+    ImgCache.$init();
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -24,9 +25,16 @@ angular.module('appyStore', ['ionic','appyStore.controllers','appyStore.services
   });
 })
 /*config method for routing and differnet states in routing*/
-.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
+.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider,ImgCacheProvider) {
   // if (ionic.Platform.isAndroid())
   //      $ionicConfigProvider.scrolling.jsScrolling(false);
+  //more options at once
+    ImgCacheProvider.setOptions({
+        debug: true,
+        usePersistentCache: true
+    });
+    ImgCacheProvider.manualInit = true;
+
   $stateProvider
   /*Categories state for displaying the Category list*/
   .state('categories', {

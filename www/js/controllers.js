@@ -7,7 +7,7 @@
 /*Including the controllers to the appyStore module*/
 angular.module('appyStore.controllers',[])
 /*Creating the categoryCtrl for showing the categorylist*/
-.controller('categoryCtrl',function($scope,CategoryService){
+.controller('categoryCtrl',function($scope,CategoryService,ImgCache){
   console.log('categoryCtrl');
   /*Url which contains the category list*/
   var url = 'http://beta.appystore.in/appy_app/appyApi_handler.php?method=getCategoryList&content_type=videos&limit_start=0&age=1.5&incl_age=5';
@@ -30,7 +30,7 @@ angular.module('appyStore.controllers',[])
            space: 220,
            clicking:true,
            scrolling:true,
-           autoRotationSpeed: 30000,
+          //  autoRotationSpeed: none,
            loop: true
        }
        /*Iterating through the result and adding the imageurls to the slides array*/
