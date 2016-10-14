@@ -1,4 +1,6 @@
 {
   "name": "appyStore",
-  "app_id": "aa5e2de1"
+  "app_id": "aa5e2de1",
+  "typescript":true,
+  "v2":true
 }

@@ -81,3 +81,7 @@ angular.module('appyStore.services', [])
       }
     }
   })
+  .factory('appyCache',function($cacheFactory){
+    console.log("appyCache");
+    return $cacheFactory();
+  })

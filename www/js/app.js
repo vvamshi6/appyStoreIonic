@@ -5,7 +5,7 @@
 * Purpose : Main Routing application for ionic app
 */
 /*Creating appystore module by using module function and adding required dependencies*/
-angular.module('appyStore', ['ionic','appyStore.controllers','appyStore.services','angular-carousel-3d','ngTouch','ImgCache'])
+angular.module('appyStore', ['ionic','appyStore.controllers','appyStore.services','angular-carousel-3d','ngTouch','ImgCache','ngImageCache'])
 .run(function($ionicPlatform,ImgCache) {
   $ionicPlatform.ready(function() {
     ImgCache.$init();
@@ -25,15 +25,16 @@ angular.module('appyStore', ['ionic','appyStore.controllers','appyStore.services
   });
 })
 /*config method for routing and differnet states in routing*/
-.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider,ImgCacheProvider) {
+.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider,ImageCacheProvider) {
   // if (ionic.Platform.isAndroid())
   //      $ionicConfigProvider.scrolling.jsScrolling(false);
   //more options at once
-    ImgCacheProvider.setOptions({
-        debug: true,
-        usePersistentCache: true
-    });
-    ImgCacheProvider.manualInit = true;
+  ImageCacheProvider.setStorage(window.localStorage);
+    // ImgCacheProvider.setOptions({
+    //     debug: true,
+    //     usePersistentCache: true
+    // });
+    // ImgCacheProvider.manualInit = true;
 
   $stateProvider
   /*Categories state for displaying the Category list*/
