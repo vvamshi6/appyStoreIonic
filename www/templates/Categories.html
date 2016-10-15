@@ -24,7 +24,7 @@
         <!-- Displaying image and Caption -->
         <figure>
           <a ng-if = "carousel3d.getCurrentIndex() === $index"
-          ui-sref="content({pcatid:slide.pcatid,catid:slide.catid,count:slide.count})">
+          ui-sref="content({pcatid:slide.pcatid,catid:slide.catid,count:slide.count,caption:slide.caption})">
           <ui-image data-src="{{slide.src}}" alt="" ></ui-image></a>
           <ui-image ng-if="carousel3d.getCurrentIndex() !== $index" data-src="{{slide.src}}" alt="" ></ui-image>
           <!-- <img ng-src = "{{slide.src}}" alt=""/></a> -->

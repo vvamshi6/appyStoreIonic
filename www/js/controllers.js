@@ -66,9 +66,14 @@ angular.module('appyStore.controllers',[])
   $scope.catid = $stateParams.catid;
   $scope.pcatid = $stateParams.pcatid;
   $scope.count = $stateParams.count;
+  $scope.caption = $stateParams.caption;
   var catid = $scope.catid;
   var pcatid = $scope.pcatid;
   var count = $scope.count;
+  if($stateParams.caption){
+    $scope.caption = $stateParams.caption;
+    var caption = $stateParams.caption;
+  }
   if($stateParams.poster){
     console.log($stateParams.poster);
     $scope.poster = $stateParams.poster;
@@ -80,7 +85,8 @@ angular.module('appyStore.controllers',[])
     console.log(url);
   }
   console.log('contentCtrl');
-  var cache = appyCache.get("Contentdata");
+  if($scope.caption)
+  var cache = appyCache.get($scope.caption);
   if(cache){
     console.log(cache);
     $scope.data = cache;
@@ -120,8 +126,8 @@ angular.module('appyStore.controllers',[])
     });
  };
  $scope.$watch("data",function(newData,OldData){
-   appyCache.put("Contentdata",newData);
-   console.log(appyCache.get("Contentdata"));
+   appyCache.put($scope.caption,newData);
+   console.log(appyCache.get($scope.caption));
   //  console.log(newData);
  })
  /*popover for ionicapp*/

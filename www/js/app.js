@@ -45,7 +45,7 @@ angular.module('appyStore', ['ionic','appyStore.controllers','appyStore.services
   })
   /*Content state for displaying the Content list*/
   .state('content', {
-    url: '/content/?pcatid?catid?count',
+    url: '/content/?pcatid?catid?count?caption',
     templateUrl: 'templates/Content.html',
     controller: 'contentCtrl'
   })
