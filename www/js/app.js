@@ -5,10 +5,10 @@
 * Purpose : Main Routing application for ionic app
 */
 /*Creating appystore module by using module function and adding required dependencies*/
-angular.module('appyStore', ['ionic','appyStore.controllers','appyStore.services','angular-carousel-3d','ngTouch','ImgCache','ngImageCache'])
-.run(function($ionicPlatform,ImgCache) {
+angular.module('appyStore', ['ionic','appyStore.controllers','appyStore.services','angular-carousel-3d','ngTouch'])
+.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
-    ImgCache.$init();
+    // ImgCache.$init();
     if(window.cordova && window.cordova.plugins.Keyboard) {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
@@ -25,11 +25,11 @@ angular.module('appyStore', ['ionic','appyStore.controllers','appyStore.services
   });
 })
 /*config method for routing and differnet states in routing*/
-.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider,ImageCacheProvider) {
+.config(function($stateProvider, $urlRouterProvider,$ionicConfigProvider) {
   // if (ionic.Platform.isAndroid())
   //      $ionicConfigProvider.scrolling.jsScrolling(false);
   //more options at once
-  ImageCacheProvider.setStorage(window.localStorage);
+  // ImageCacheProvider.setStorage(window.localStorage);
     // ImgCacheProvider.setOptions({
     //     debug: true,
     //     usePersistentCache: true
@@ -49,10 +49,22 @@ angular.module('appyStore', ['ionic','appyStore.controllers','appyStore.services
     templateUrl: 'templates/Content.html',
     controller: 'contentCtrl'
   })
+  /**/
   .state('player', {
                 url: '/player?url?poster?pcatid?catid?count',
                 templateUrl: 'templates/videoPlayer.html',
                 controller: 'contentCtrl'
+  })
+  /**/
+  .state('search',{
+    url:'/search',
+    templateUrl:'templates/searchScreen.html',
+    controller:'searchCtrl'
+  })
+  .state('searchResult',{
+    url:'/searchResult?keyword',
+    templateUrl:'templates/searchResult.html',
+    controller:'searchCtrl'
   });
   /*Default url for the Routing*/
   $urlRouterProvider.otherwise('/categories');

@@ -21,6 +21,17 @@ ion-popover-view.fit ion-content {
   top:550px;
   position: absolute;
 }
+
+input[type=text]{
+  font-family: "Times New Roman", Georgia, Serif;
+    width: 70%;
+    padding: 22px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
 /* default value is 'scroll' */
 /*.scroll-view.scroll-x {
     overflow-x: hidden;
@@ -219,12 +230,12 @@ and (orientation:landscape){
     text-align: center;
   }
   #footer_menu{
-    top:9px;
+    top:5px;
     position:relative;
     float:right;
   }
   #footer_kart{
-    top:9px;
+    top:5px;
     position: relative;
   }
 }
