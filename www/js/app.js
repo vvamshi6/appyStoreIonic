@@ -62,7 +62,7 @@ angular.module('appyStore', ['ionic','appyStore.controllers','appyStore.services
     controller:'searchCtrl'
   })
   .state('search.searchResult',{
-    url:'/searchResult?keyword',
+    url:'/.searchResult?keyword',
     templateUrl:'templates/searchResult.html'
     // controller:'searchCtrl'
   });

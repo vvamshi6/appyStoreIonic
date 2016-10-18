@@ -1,12 +1,14 @@
-{{count}}
+<div style = "top:-25px;position:relative;">
 <ion-scroll direction = "x">
   <div style="display: inline-block " ng-if = "x != undefined" ng-repeat="x in data track by $index">
   <div class="card card-1 col item item-divider ">
     <img style='border-radius: 10%;' ng-src='{{x.image_path}}' width="255"height="150"/>
-
+    <p class = "item-text-wrap" style = "width:21em;text-wrap:normal;">{{x.title}}</p>
+    <!-- <span ui-sref= "player({url:x.dnld_url,poster:x.image_path,pcatid:pcatid,catid:catid,count:count})" class="icon videoIcon playS"></span> -->
+    <!-- <span class="moreIcon" ng-click="popover.show($event)"></span> -->
   </div>
 </div>
 </ion-scroll>
-<ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="40%">
+<ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore(textbox)" distance="40%">
 </ion-infinite-scroll>
-{{textbox}}
+</div>
