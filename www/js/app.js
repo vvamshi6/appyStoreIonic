@@ -61,10 +61,10 @@ angular.module('appyStore', ['ionic','appyStore.controllers','appyStore.services
     templateUrl:'templates/searchScreen.html',
     controller:'searchCtrl'
   })
-  .state('searchResult',{
+  .state('search.searchResult',{
     url:'/searchResult?keyword',
-    templateUrl:'templates/searchResult.html',
-    controller:'searchCtrl'
+    templateUrl:'templates/searchResult.html'
+    // controller:'searchCtrl'
   });
   /*Default url for the Routing*/
   $urlRouterProvider.otherwise('/categories');

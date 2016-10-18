@@ -1,5 +1,12 @@
-<img style = "top:10px;position:relative;"ng-click = "myGoBack()" ng-src = "Optimised_icons_all-sizes/drawable-mdpi/Button_14_back-min.png">
-<img style = "float:right;top:10px;position:relative;" ng-src = "Optimised_icons_all-sizes/drawable-mdpi/Button_6_search-min.png">
-<center>
-  <input type = "text" ng-model='textbox' name='textbox' ng-value = "textbox" style="text-align:left;font-size:150%;top:-50px;position:relative;"placeholder="Enter your text here"/>
-</center>
+{{count}}
+<ion-scroll direction = "x">
+  <div style="display: inline-block " ng-if = "x != undefined" ng-repeat="x in data track by $index">
+  <div class="card card-1 col item item-divider ">
+    <img style='border-radius: 10%;' ng-src='{{x.image_path}}' width="255"height="150"/>
+
+  </div>
+</div>
+</ion-scroll>
+<ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="40%">
+</ion-infinite-scroll>
+{{textbox}}

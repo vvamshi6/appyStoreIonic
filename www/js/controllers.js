@@ -174,17 +174,43 @@ video.load();
   }
 }
 })
-.controller('searchCtrl',function($scope,$stateParams,$ionicHistory,SearchService){
-  $scope.changeKeyWord = function(keyword){
+.controller('searchCtrl',function($scope,$stateParams,$ionicHistory,SearchService,$state){
+    var offset = 0;
+    $scope.changeKeyWord = function(keyword){
+      if(!keyword)
+      alert('enter');
     $scope.textbox = keyword;
-    console.log(keyword);
+    var url = 'http://beta.appystore.in/appy_app/appyApi_handler.php?method=search&keyword='+keyword+'&content_type=appsgames&limit=5&offset=0&age=1&incl_age=6';
+    console.log(url);
+    SearchService.getData(url).then(function(data){
+      $scope.count = data.data.Responsedetails[0].total_count;
+      $scope.data = data.data.Responsedetails[0].data_array;
+      console.log($scope.data);
+      });
+    if($scope.textbox){
+    $state.go('.searchResult');
+    }
   }
+  $scope.loadMore = function(){
+     offset = offset+5;
+     var url = 'http://beta.appystore.in/appy_app/appyApi_handler.php?method=search&keyword='+keyword+'&content_type=appsgames&limit=5&offset='+offset+'&age=1&incl_age=6';
+    console.log(url);
+    /*Content service for calling the RestApi*/
+    SearchService.getData(url).then(function(data){
+      /*Making the flag true when lenght becomes equal to the category count*/
+      if ( $scope.data.length == $scope.count ) {
+        console.log($scope.count);
+      $scope.noMoreItemsAvailable = true;
+      }
+      // if($scope.data.length > 1){
+      $scope.data = $scope.data.concat(data.data.Responsedetails[0].data_array);
+        $scope.$broadcast('scroll.infiniteScrollComplete');
+      // $scope.$broadcast('scroll.infiniteScrollComplete');
+      console.log($scope.data);
+      // }
+    });
+ };
   $scope.myGoBack = function() {
         $ionicHistory.goBack();
-  };
-  if($stateParams.keyword){
-    $scope.textbox = $stateParams.keyword;
   }
-  var url = "http://beta.appystore.in/appy_app/appyApi_handler.php?method=search&keyword='+$stateParams.keyword+'&content_type=appsgames&limit=5&offset=0&age=1&incl_age=6";
-  console.log(url);
 })

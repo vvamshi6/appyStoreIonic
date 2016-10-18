@@ -7,7 +7,6 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "angular": "^1.5.8",
-    "angular-imgcache": "angular-imgcache.js#^1.1.0",
     "ng-image-cache": "^0.3.0"
   }
 }

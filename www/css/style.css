@@ -230,12 +230,12 @@ and (orientation:landscape){
     text-align: center;
   }
   #footer_menu{
-    top:5px;
+    top:-15px;
     position:relative;
     float:right;
   }
   #footer_kart{
-    top:5px;
+    top:-15px;
     position: relative;
   }
 }
