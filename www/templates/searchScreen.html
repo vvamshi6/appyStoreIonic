@@ -1,19 +1,28 @@
-<ion-content style = "opacity:0.5;">
+<!-- <ion-content style = "opacity:0.5;"> -->
 <img style = "top:10px;position:relative;"ng-click = "myGoBack()" ng-src = "Optimised_icons_all-sizes/drawable-mdpi/Button_14_back-min.png">
 <img  ng-click = 'changeKeyWord(textbox)' style = "float:right;top:10px;position:relative;" ng-src = "Optimised_icons_all-sizes/drawable-mdpi/Button_6_search-min.png">
 <center>
   <input type = "text" ng-model='textbox' name='textbox' style="text-align:left;font-size:150%;top:-50px;position:relative;"placeholder="Enter your text here" ng-model = "keyword" />
 </center>
-<div ui-view>
+<div ui-view style = "top:5px;position:relative;">
 <p style="font-size:150%;color:white;text-align:left;padding-left:5%;">
   <b>Popular searches</b>
 </p>
-<div style = "padding-left:5%">
-  <button class="button button-light" style = "border-radius:25px;"ng-click = "changeKeyWord('Rhymes')">Rhymes</button>
-  <button class="button button-light" style = "border-radius:25px;"ng-click = "changeKeyWord('Letters')">Letters</button>
+<div style = "padding-left:9%">
+  <!-- <div class = "row"> -->
+  <button class="button button-light" style = "border-radius:25px;" ng-click = "changeKeyWord('Rhymes')">Rhymes</button>
+  <button class="button button-light" style = "border-radius:25px;column-gap: 40px;" ng-click = "changeKeyWord('Letters')">Letters</button>
   <button class="button button-light" style = "border-radius:25px;"ng-click = "changeKeyWord('Counting')">Counting</button>
   <button class="button button-light" style = "border-radius:25px;"ng-click = "changeKeyWord('Drawing')">Drawing</button>
   <button class="button button-light" style = "border-radius:25px;"ng-click = "changeKeyWord('Numbers')">Numbers</button>
+  <button class="button button-light" style = "border-radius:25px;"ng-click = "changeKeyWord('ABC')">ABC</button>
+  <!-- </div> -->
+  <div style = "padding-left:5%" class = "row">
+  <button class="button button-light " style = "border-radius:25px;"ng-click = "changeKeyWord('alphabets')">alphabets</button>
+  <button class="button button-light " style = "border-radius:25px;"ng-click = "changeKeyWord('puzzles')">puzzles</button>
+  <button class="button button-light " style = "border-radius:25px;"ng-click = "changeKeyWord('science')">science</button>
+  <button class="button button-light " style = "border-radius:25px;"ng-click = "changeKeyWord('Reading')">Reading</button>
 </div>
 </div>
-</ion-content>
+</div>
+<!-- </ion-content> -->
