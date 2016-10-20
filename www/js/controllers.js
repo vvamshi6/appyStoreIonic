@@ -67,7 +67,7 @@ angular.module('appyStore.controllers', [])
     });
   })
   /*Creating the contentCtrl for showing the contentlist*/
-  .controller('contentCtrl', function($scope, $http, ContentService, appyCache, $stateParams, $ionicPopover, $sce, $location, $ionicHistory) {
+  .controller('contentCtrl', function($scope, $window, $http, ContentService, appyCache, $location, $stateParams, $ionicPopover, $sce, $location, $ionicHistory) {
     $scope.data = [];
     /*flag to stop scrolling when objects are completed*/
     $scope.noMoreItemsAvailable = false;
@@ -150,7 +150,11 @@ angular.module('appyStore.controllers', [])
     });
     /*ionicHistory goback function to navigate to previous page*/
     $scope.myGoBack = function() {
-      $ionicHistory.goBack();
+      console.log('function');
+      $window.history.go(-1);
+      // $backView = $ionicHistory.backView();
+      //  $backView.go();
+      // $ionicHistory.goBack();
     };
     /*function to change the url of the video*/
     $scope.changeUrl = function(url, poster) {
@@ -175,7 +179,7 @@ angular.module('appyStore.controllers', [])
       }
     }
   })
-  .controller('searchCtrl', function($scope, $stateParams, $ionicHistory, SearchService, $state) {
+  .controller('searchCtrl', function($scope, $window, $stateParams, $ionicHistory, $location, SearchService, $state) {
     var offset = 0;
     $scope.changeKeyWord = function(keyword) {
       if (!keyword)
@@ -212,6 +216,10 @@ angular.module('appyStore.controllers', [])
       });
     };
     $scope.myGoBack = function() {
-      $ionicHistory.goBack();
+      console.log('funciton');
+      $window.history.go(-1);
+      // $backView = $ionicHistory.backView();
+      //  $backView.go();
+      // $ionicHistory.backView();
     }
   })

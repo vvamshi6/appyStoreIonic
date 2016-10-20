@@ -39,9 +39,7 @@ input[type=text]{
 {
 	display: none;
 }*/
-.wrapping-list {
-    overflow: initial;
-    white-space: initial;
+#myVideo{
 }
 textcontent p {
 width:400px

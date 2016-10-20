@@ -38,10 +38,28 @@ angular.module('appyStore', ['ionic','appyStore.controllers','appyStore.services
 
   $stateProvider
   /*Categories state for displaying the Category list*/
-  .state('categories', {
-    url: '/categories',
-    templateUrl: 'templates/Categories.html',
+  // .state('categories', {
+  //   url: '/categories',
+  //   templateUrl: 'templates/Categories.html',
+  //   controller:'categoryCtrl'
+  // })
+  .state('categories',{
+    abstract: true,
+    url:'/categories',
+    templateUrl:'templates/main.html'
+  })
+  .state('categories.videos',{
+    url:'/videos',
+    templateUrl:'templates/Categories.html',
     controller:'categoryCtrl'
+  })
+  .state('categories.audio',{
+    url:'/audio',
+    templateUrl:'templates/audio.html'
+  })
+  .state('categories.history',{
+    url:'/history',
+    templateUrl:'templates/history.html'
   })
   /*Content state for displaying the Content list*/
   .state('content', {
@@ -67,5 +85,5 @@ angular.module('appyStore', ['ionic','appyStore.controllers','appyStore.services
     // controller:'searchCtrl'
   });
   /*Default url for the Routing*/
-  $urlRouterProvider.otherwise('/categories');
+  $urlRouterProvider.otherwise('/categories/videos');
 });
