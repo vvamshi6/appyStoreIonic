@@ -2,7 +2,7 @@
   <ion-content class = "background1" style = "overflow:none">
     <img ng-click = "myGoBack()" style = "float:left;top:5px;"ng-src = "Optimised_icons_all-sizes/drawable-mdpi/Button_14_back-min.png">
     <img style = "float:right" ng-src = "Optimised_icons_all-sizes/drawable-mdpi/Button_9_download-min.png">
-        <div><center><video id='myVideo' width="300" controls poster="{{poster}}">
+        <div ui-view><center><video id='myVideo' width="300" controls poster="{{poster}}">
             <source ng-src="{{url}}" type="video/mp4">
         </video>
       </center></div>
@@ -10,7 +10,7 @@
   <div class="row">
     <div ng-if = "x != undefined" ng-repeat="x in data track by $index">
       <div>
-        <div class="card1 card-1 col item item-divider">
+        <div class="card1 card-1 col item item-divider item-text-wrap">
           <img ng-click="changeUrl(x.dnld_url,x.image_path)" class = "img1 icon" style='border-radius: 10%;' ng-src='{{x.image_path}}' width="170"/>
           <!-- <span class="icon videoIcon playS"></span> -->
           <!-- <span class="moreIcon" ng-click="popover.show($event)"></span> -->
