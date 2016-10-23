@@ -6,21 +6,16 @@
             <source ng-src="{{url}}" type="video/mp4">
         </video>
       </center></div>
-<ion-scroll style="height:160px;" class = "listbackground" direction="x">
-  <div class="row">
-    <div ng-if = "x != undefined" ng-repeat="x in data track by $index">
-      <div>
-        <div class="card1 card-1 col item item-divider item-text-wrap">
-          <img ng-click="changeUrl(x.dnld_url,x.image_path)" class = "img1 icon" style='border-radius: 10%;' ng-src='{{x.image_path}}' width="170"/>
-          <!-- <span class="icon videoIcon playS"></span> -->
-          <!-- <span class="moreIcon" ng-click="popover.show($event)"></span> -->
-          <!-- <p style="width:21em;text-wrap:normal;">{{x.title}}</p> -->
-          <br>
-        </div>
+      <ion-scroll direction="x" style="height:160px;" class = "listbackground">
+        <div>
+          <div class="card1 card-1 col item item-divider item-text-wrap" style="display: inline-block " ng-if="x != undefined" ng-repeat="x in data track by $index">
+            <img ng-click="changeUrl(x.dnld_url,x.image_path)" class = "img1 icon" style='border-radius: 10%;' ng-src='{{x.image_path}}' width="170"/>
+            <!-- <ui-image data-src = '{{x.image_path}}'style='border-radius: 10%;'width="265"></ui-image> -->
+            <br>
+          </div>
+      </ion-scroll>
+      <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="40%">
+      </ion-infinite-scroll>
       </div>
-    </div>
-</ion-scroll>
-<ion-infinite-scroll ng-if="!noMoreItemsAvailable"  on-infinite="loadMore()" distance="50%">
-</ion-infinite-scroll>
-</ion-content>
+    </ion-content>
 </ion-view>
