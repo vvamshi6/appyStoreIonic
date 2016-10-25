@@ -2,7 +2,7 @@
  * FileName:controllers.js
  * CreatedBy: Vamsee
  * Date :01-10-2016
- * Purpose : Creating appyStore app using ionic framework
+ * Purpose : We will define the all controllers in this file  
  */
 /*Including the controllers to the appyStore module*/
 angular.module('appyStore.controllers', [])
@@ -21,7 +21,7 @@ angular.module('appyStore.controllers', [])
         perspective: 35,
         startSlide: 0,
         border: 0,
-        dir: 'ltr',
+        // dir: 'ltr',
         width: 290,
         height: 200,
         space: 220,
@@ -190,6 +190,7 @@ angular.module('appyStore.controllers', [])
     var offset = 0;
     /*function to change the keyword or searchitem*/
     $scope.changeKeyWord = function(keyword) {
+      $scope.data = "";
       /*If user not enter the keyword then alerting the user to enter the message*/
       if (!keyword)
         alert('Please	enter	a	search	text');
@@ -223,6 +224,7 @@ angular.module('appyStore.controllers', [])
           console.log($scope.count);
           $scope.noMoreItemsAvailable = true;
         }
+
         /*Adding the loaded items to the previous scope object*/
         $scope.data = $scope.data.concat(data.data.Responsedetails[0].data_array);
         /*scope.broadcast function to stop the infinitescroll*/

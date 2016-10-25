@@ -434,14 +434,8 @@ and (orientation:portrait) {
     left: -18%; /* or right 50% */
     text-align: center;
   }
-  #footer_menu{
-    top:150px;
-    position:relative;
-    float:right;
-  }
-  #footer_kart{
-    top:150px;
-    position: relative;
+  ion-scroll,ion-infinite-scroll{
+    overflow-y: hidden;
   }
 }
 .white-space-fix{
@@ -473,12 +467,12 @@ and (orientation:landscape){
     text-align: center;
   }
   #footer_menu{
-    top:1px;
+    top:-35px;
     position:relative;
     float:right;
   }
   #footer_kart{
-    top:1px;
+    top:-35px;
     position: relative;
   }
 }

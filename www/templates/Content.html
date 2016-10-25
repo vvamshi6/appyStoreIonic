@@ -4,20 +4,25 @@
 * Date :01-09-2016
 * Purpose : User interface for displaying Contentlist
  -->
-<img style="top:10px;position:relative;" ng-click="myGoBack()" ng-src="Optimised_icons_all-sizes/drawable-mdpi/Button_14_back-min.png">
-<img ui-sref="search" style="float:right;top:10px;position:relative;" ng-src="Optimised_icons_all-sizes/drawable-mdpi/Button_6_search-min.png">
-<center><b style="text-align:center;color:white;font-size:150%;top:-40px;position:relative;">{{caption}}</b></center>
-<ion-scroll direction="x">
-  <div>
-    <div class="cardinsearch card-1 col item item-divider item-text-wrap" style="display: inline-block " ng-if="x != undefined" ng-repeat="x in data track by $index">
-      <img style='border-radius: 10%;' ng-src='{{x.image_path}}' width="265" />
-      <!-- <ui-image data-src = '{{x.image_path}}'style='border-radius: 10%;'width="265"></ui-image> -->
-      <span ui-sref="player({url:x.dnld_url,poster:x.image_path,pcatid:pcatid,catid:catid,count:count})" class="icon videoIcon playS"></span>
-      <span class="moreIcon" ng-click="popover.show($event)"></span>
-      <p style="width:17em;">{{x.title}}</p>
-      <br>
-    </div>
-</ion-scroll>
-<ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="40%">
-</ion-infinite-scroll>
-</div>
+<ion-content style="overflow:hidden">
+	<div>
+		<img style="top:10px;position:relative;" ng-click="myGoBack()" ng-src="Optimised_icons_all-sizes/drawable-mdpi/Button_14_back-min.png">
+		<img ui-sref="search" style="float:right;top:10px;position:relative;" ng-src="Optimised_icons_all-sizes/drawable-mdpi/Button_6_search-min.png">
+		<center><b style="text-align:center;color:white;font-size:150%;top:-40px;position:relative;">{{caption}}</b></center>
+		<ion-scroll direction="x" style="position:fixed:top:50px;overflow-y: hidden;">
+			<div>
+				<div class="cardinsearch card-1 col item item-divider item-text-wrap" style="display: inline-block " ng-if="x != undefined"
+					ng-repeat="x in data track by $index">
+					<img style='border-radius: 10%;' ng-src='{{x.image_path}}' width="265" />
+					<!-- <ui-image data-src = '{{x.image_path}}'style='border-radius: 10%;'width="265"></ui-image> -->
+					<span ui-sref="player({url:x.dnld_url,poster:x.image_path,pcatid:pcatid,catid:catid,count:count})" class="icon videoIcon playS"></span>
+					<span class="moreIcon" ng-click="popover.show($event)"></span>
+					<p style="width:17em;">{{x.title}}</p>
+					<br>
+				</div>
+		</ion-scroll>
+		<ion-infinite-scroll style="overflow-y: hidden;" ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="40%">
+		</ion-infinite-scroll>
+		</div>
+	</div>
+</ion-content>

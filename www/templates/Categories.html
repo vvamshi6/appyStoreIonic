@@ -5,38 +5,28 @@
 * Purpose : User interface for displaying Categorylist
  -->
 <!-- <ion-view> -->
-  <!-- Ion content directive which contains the user data -->
-<ion-content>
-  <!-- Carousel3d directive for displaying the carousel in 3d format -->
-  <!-- <nav>
-    <ul>
-      <img class = "float:left" src = 'Optimised_icons_all-sizes/drawable-xxxhdpi/Button_7_menu_on-min.png' height="50" width="50">
-      <img class = "float_center" src = 'Optimised_icons_all-sizes/drawable-xxxhdpi/Button_5_history_on-min.png' height="50" width="50">
-      <img style="float:right" src = 'Optimised_icons_all-sizes/drawable-xxxhdpi/Button_6_search-min.png' height="50" width="50">
-      <img style="float:right" src = 'Optimised_icons_all-sizes/drawable-xxxhdpi/Button_4_audio-min.png' height="50" width="50">
-    </ul>
-  </nav> -->
-  <div ng-include = "'templates/header.html'"></div>
-<div carousel3d
-    ng-model="slides" options = "options">
-    <!-- Repeating through the slides object which contains images -->
-    <div class = "img-responsive" carousel3d-slide ng-repeat="slide in slides">
-        <!-- Displaying image and Caption -->
-        <figure>
-          <a ng-if = "carousel3d.getCurrentIndex() === $index"
-          ui-sref="content({pcatid:slide.pcatid,catid:slide.catid,count:slide.count,caption:slide.caption})">
-          <!-- <ui-image data-src="{{slide.src}}" alt="" ></ui-image></a> -->
-          <!-- <ui-image ng-if="carousel3d.getCurrentIndex() !== $index" data-src="{{slide.src}}" alt="" ></ui-image> -->
-          <img ng-src = "{{slide.src}}" alt=""/></a>
-          <img ng-if = "carousel3d.getCurrentIndex() !== $index" ng-src="{{slide.src}}"/>
-          <!-- <a ng-attr-href="{{carousel3d.getCurrentIndex() === $index ? '#content' : undefined}}">
+<!-- Ion content directive which contains the user data -->
+<ion-content style="overflow:hidden">
+
+	<div ng-include="'templates/header.html'"></div>
+	<div carousel3d ng-model="slides" options="options">
+		<!-- Repeating through the slides object which contains images -->
+		<div class="img-responsive" carousel3d-slide ng-repeat="slide in slides">
+			<!-- Displaying image and Caption -->
+			<figure>
+				<a ng-if="carousel3d.getCurrentIndex() === $index" ui-sref="content({pcatid:slide.pcatid,catid:slide.catid,count:slide.count,caption:slide.caption})">
+					<!-- <ui-image data-src="{{slide.src}}" alt="" ></ui-image></a> -->
+					<!-- <ui-image ng-if="carousel3d.getCurrentIndex() !== $index" data-src="{{slide.src}}" alt="" ></ui-image> -->
+					<img ng-src="{{slide.src}}" alt="" /></a>
+				<img ng-if="carousel3d.getCurrentIndex() !== $index" ng-src="{{slide.src}}" />
+				<!-- <a ng-attr-href="{{carousel3d.getCurrentIndex() === $index ? '#content' : undefined}}">
             <img ng-src="{{slide.src}}"/>
           </a> -->
-            <!-- <a href="#content"><img ng-src="{{slide.src}}"/></a> -->
-            <figcaption ng-bind="slide.caption"></figcaption>
-        </figure>
-    </div>
-</div>
-<div ng-include = "'templates/footer.html'">
+				<!-- <a href="#content"><img ng-src="{{slide.src}}"/></a> -->
+				<figcaption ng-bind="slide.caption"></figcaption>
+			</figure>
+		</div>
+	</div>
+	<div ng-include="'templates/footer.html'">
 </ion-content>
 <!-- </ion-view> -->

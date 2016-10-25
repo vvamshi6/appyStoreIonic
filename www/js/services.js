@@ -2,7 +2,7 @@
  * FileName:services.js
  * CreatedBy: Vamsee
  * Date :01-10-2016
- * Purpose : Creating appyStore app using ionic framework
+ * Purpose : We will define all services in this page
  */
 /*Including the services to the appyStore module*/
 angular.module('appyStore.services', [])
