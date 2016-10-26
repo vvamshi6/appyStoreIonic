@@ -81,6 +81,7 @@ angular.module('appyStore.services', [])
       }
     }
   })
+  /*Creating SearchService for calling the searchApi */
   .factory('SearchService', function($http) {
     var data = [];
     return {

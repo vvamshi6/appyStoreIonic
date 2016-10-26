@@ -1,4 +1,9 @@
-/* Empty. Add your own CSS if you like */
+/*
+* FileName:style.css
+* CreatedBy: Vamsee
+* Date :30-09-2016
+* Purpose : Stylesheet
+*/
 ion-popover-view.fit {
   height: auto;
 }
@@ -39,6 +44,9 @@ input[type=text]{
 {
 	display: none;
 }*/
+#message{
+  top:200px;position:relative;margin-left:550px;
+}
 #myVideo{
 }
 textcontent p {
@@ -84,7 +92,7 @@ width:400px
   /*background-color: #fff !important;;*/
   border-radius: 10px;
   display: inline-block;
-  height: 200px;
+  height: 210px;
   margin: 1rem;
   /*position: relative;*/
   width: 276px;
@@ -253,6 +261,9 @@ and (orientation:landscape){
     top:-15px;
     position: relative;
   }
+  #message{
+  top:70px;position:relative;margin-left:250px;
+}
 }
 @media only screen
 and (min-width: 361px)
@@ -299,6 +310,7 @@ and (orientation:portrait) {
   width:100px;
   height:50px;
 }
+
 }
 /*nexus 5s*/
 @media only screen
@@ -337,6 +349,9 @@ and (orientation:landscape){
     top:9px;
     position: relative;
   }
+  #message{
+  top:70px;position:relative;margin-left:250px;
+}
 }
 /* Nexus 6p */
 @media only screen
@@ -407,6 +422,9 @@ and (orientation:landscape){
     top:9px;
     position: relative;
   }
+  #message{
+  top:70px;position:relative;margin-left:250px;
+}
 }
 /* iPhone 5 */
 @media only screen
@@ -475,6 +493,9 @@ and (orientation:landscape){
     top:-35px;
     position: relative;
   }
+  #message{
+  top:70px;position:relative;margin-left:250px;
+  }
 }
 /* iPhone 6 */
 @media only screen
@@ -533,6 +554,9 @@ and (orientation:landscape){
     left: -26%; /* or right 50% */
     text-align: center;
   }
+  #message{
+  top:70px;position:relative;margin-left:250px;
+  }
 }
 /* iPhone 6 Plus*/
 @media only screen
@@ -590,6 +614,9 @@ and (orientation:landscape){
     position: relative;
     left: -30%; /* or right 50% */
     text-align: center;
+  }
+  #message{
+  top:70px;position:relative;margin-left:300px;
   }
 }
 /* iPad*/
@@ -664,5 +691,8 @@ and (orientation:landscape){
   #carousel{
     top: 75px;
     position: relative;
+  }
+  #message{
+  top:70px;position:relative;margin-left:350px;
   }
 }

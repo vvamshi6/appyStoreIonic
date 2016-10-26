@@ -13,7 +13,7 @@
 			<div>
 				<div class="cardinsearch card-1 col item item-divider item-text-wrap" style="display: inline-block " ng-if="x != undefined"
 					ng-repeat="x in data track by $index">
-					<img style='border-radius: 10%;' ng-src='{{x.image_path}}' width="265" />
+					<img ui-sref="player({url:x.dnld_url,poster:x.image_path,pcatid:pcatid,catid:catid,count:count})" style='border-radius: 10%;' ng-src='{{x.image_path}}' width="265" />
 					<!-- <ui-image data-src = '{{x.image_path}}'style='border-radius: 10%;'width="265"></ui-image> -->
 					<span ui-sref="player({url:x.dnld_url,poster:x.image_path,pcatid:pcatid,catid:catid,count:count})" class="icon videoIcon playS"></span>
 					<span class="moreIcon" ng-click="popover.show($event)"></span>

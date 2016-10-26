@@ -9,7 +9,7 @@
 <ion-content style="overflow:hidden">
 
 	<div ng-include="'templates/header.html'"></div>
-	<div carousel3d ng-model="slides" options="options">
+	<div id = "carousel" carousel3d ng-model="slides" options="options">
 		<!-- Repeating through the slides object which contains images -->
 		<div class="img-responsive" carousel3d-slide ng-repeat="slide in slides">
 			<!-- Displaying image and Caption -->
