@@ -4,6 +4,8 @@
 * Date :30-09-2016
 * Purpose : User interface for displaying Categorylist of audio
  -->
+
+ <!--Adding the audio template Navigation icons-->
 <div style="top:100px">
 	<img class="search_button" ui-sref="search" ng-src="Optimised_icons_all-sizes/drawable-mdpi/Button_6_search-min.png">
 	<img class="menu_button" src='Optimised_icons_all-sizes/drawable-xxxhdpi/Button_7_menu-min.png' height="50" width="50">
@@ -11,12 +13,16 @@
 	<a href="#/categories/history"><img class="float_center1" src='Optimised_icons_all-sizes/drawable-xxxhdpi/Button_5_history-min.png' height="50" width="50"></a>
 	<a href="#/categories/videos"><img class="float_center" src='Optimised_icons_all-sizes/drawable-xxxhdpi/Button_3-min.png' height="50" width="50"></a>
 </div>
+
+<!--Adding the footer Icons-->
 <div style="top:246px;position:relative;">
 	<ul>
 		<img id="footer_kart" style="float:left" ng-src='Optimised_icons_all-sizes/drawable-mdpi/Button_8_kart-min.png' />
 		<img id="footer_menu" style="float:right" ng-src="Optimised_icons_all-sizes/drawable-mdpi/Button_7_menu-min.png" />
 	</ul>
 </div>
-<div id = "message">
+
+<!--Printing the message to the user-->
+<div id="message">
 	{{message}}
 </div>

@@ -4,13 +4,16 @@
 * Date :30-09-2016
 * Purpose : User interface for displaying Categorylist
  -->
+
 <!-- Ion content directive which contains the user data -->
 <ion-content style="overflow:hidden">
 
 	<div ng-include="'templates/header.html'"></div>
 	<div id = "carousel" carousel3d ng-model="slides" options="options">
+
 		<!-- Repeating through the slides object which contains images -->
 		<div class="img-responsive" carousel3d-slide ng-repeat="slide in slides">
+		
 			<!-- Displaying image and Caption -->
 			<figure>
 				<a ng-if="carousel3d.getCurrentIndex() === $index" ui-sref="content({pcatid:slide.pcatid,catid:slide.catid,count:slide.count,caption:slide.caption})">
@@ -18,6 +21,7 @@
 					<!-- <ui-image ng-if="carousel3d.getCurrentIndex() !== $index" data-src="{{slide.src}}" alt="" ></ui-image> -->
 					<img ng-src="{{slide.src}}" alt="" /></a>
 				<img ng-if="carousel3d.getCurrentIndex() !== $index" ng-src="{{slide.src}}" />
+		
 				<!-- <a ng-attr-href="{{carousel3d.getCurrentIndex() === $index ? '#content' : undefined}}">
             <img ng-src="{{slide.src}}"/>
           </a> -->
@@ -26,6 +30,8 @@
 			</figure>
 		</div>
 	</div>
+	
+	<!--Adding the footer template-->
 	<div ng-include="'templates/footer.html'">
 	
 </ion-content>

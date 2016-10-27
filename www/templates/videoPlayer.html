@@ -4,19 +4,23 @@
 * Date :30-09-2016
 * Purpose : Video Player page for showing the videos
  -->
- 
+ <!--Video player Template-->
 <ion-view class="background1">
-	
+
 	<ion-content class="background1" style="overflow:none">
+		<!--Navigation Icons-->
 		<img ng-click="myGoBack()" style="float:left;top:5px;" ng-src="Optimised_icons_all-sizes/drawable-mdpi/Button_14_back-min.png">
 		<img style="float:right" ng-src="Optimised_icons_all-sizes/drawable-mdpi/Button_9_download-min.png">
 		<div ui-view>
 			<center>
+				<!--Adding the HTML5 Video Player-->
 				<video id='myVideo' width="300" controls poster="{{poster}}">
 					<source ng-src="{{url}}" type="video/mp4">
 				</video>
 			</center>
 		</div>
+
+		<!--Adding the Ionscroll for displaying the list horizontally-->
 		<ion-scroll direction="x" style="height:140px;" class="listbackground">
 			<div>
 				<div class="card1 card-1 col item item-divider item-text-wrap" style="display: inline-block " ng-if="x != undefined" ng-repeat="x in data track by $index">
@@ -26,6 +30,7 @@
 					<br>
 				</div>
 		</ion-scroll>
+		<!--ion infinite scroll for loading more items-->
 		<ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="40%">
 		</ion-infinite-scroll>
 		</div>

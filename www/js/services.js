@@ -4,8 +4,10 @@
  * Date :01-10-2016
  * Purpose : We will define all services in this page
  */
+
 /*Including the services to the appyStore module*/
 angular.module('appyStore.services', [])
+
   /*Creating the CategoryService for calling the RestApi and returning the promise*/
   .factory('CategoryService', function($http) {
     var data = [];
@@ -37,6 +39,7 @@ angular.module('appyStore.services', [])
             'X_APPY_UserAgent': 'Mozilla/5.0 (Linux; Android 5.0.2; Panasonic ELUGA Switch Build/LRX22G; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/51.0.2704.81 Mobile Safari/537.36'
           }
         }).then(function(response) {
+
           /*Taking the promise object*/
           data = response;
           return data;
@@ -44,6 +47,7 @@ angular.module('appyStore.services', [])
       }
     }
   })
+
   /*Creating the ContentService for calling the RestApi and returning the promise*/
   .factory('ContentService', function($http) {
     var data = [];
@@ -74,6 +78,7 @@ angular.module('appyStore.services', [])
             'X_APPY_UserAgent': 'Mozilla/5.0 (Linux; Android 5.0.2; Panasonic ELUGA Switch Build/LRX22G; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/51.0.2704.81 Mobile Safari/537.36'
           }
         }).then(function(response) {
+
           /*Taking the promise object*/
           data = response;
           return data;
@@ -81,6 +86,7 @@ angular.module('appyStore.services', [])
       }
     }
   })
+
   /*Creating SearchService for calling the searchApi */
   .factory('SearchService', function($http) {
     var data = [];
@@ -105,6 +111,7 @@ angular.module('appyStore.services', [])
             'X_APPY_UserAgent': 'Mozilla/5.0 (Linux; Android 5.0.2; Panasonic ELUGA Switch Build/LRX22G; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/51.0.2704.81 Mobile Safari/537.36'
           }
         }).then(function(response) {
+
           /*Taking the promise object*/
           data = response;
           return data;
@@ -112,9 +119,11 @@ angular.module('appyStore.services', [])
       }
     }
   })
+
   /*creating appyCache service for cache memory*/
   .factory('appyCache', function($cacheFactory) {
     console.log("appyCache");
+
     /*returning cacheFactory function*/
     return $cacheFactory();
   })

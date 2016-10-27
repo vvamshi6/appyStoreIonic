@@ -6,9 +6,9 @@
  */
 var appyStoreDb = null;
 /*Creating appystore module by using module function and adding required dependencies*/
-angular.module('appyStore', ['ionic', 'appyStore.controllers', 'appyStore.services', 'angular-carousel-3d', 'ngTouch','ngCordova'])
-  .run(function($ionicPlatform,$cordovaSQLite) {
-    $ionicPlatform.ready(function() {
+angular.module('appyStore', ['ionic', 'appyStore.controllers', 'appyStore.services', 'angular-carousel-3d', 'ngTouch', 'ngCordova'])
+  .run(function ($ionicPlatform, $cordovaSQLite) {
+    $ionicPlatform.ready(function () {
       if (window.cordova && window.cordova.plugins.Keyboard) {
         // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
         // for form inputs)
@@ -24,16 +24,10 @@ angular.module('appyStore', ['ionic', 'appyStore.controllers', 'appyStore.servic
     });
   })
   /*config method for routing and differnet states in routing*/
-  .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     $ionicConfigProvider.scrolling.jsScrolling(false);
     $stateProvider
-    /*Categories state for displaying the Category list*/
-    // .state('categories', {
-    //   url: '/categories',
-    //   templateUrl: 'templates/Categories.html',
-    //   controller:'categoryCtrl'
-    // })
-    /*Categories state for displaying categories*/
+      /*Categories state for displaying categories*/
       .state('categories', {
         abstract: true,
         url: '/categories',
@@ -50,7 +44,7 @@ angular.module('appyStore', ['ionic', 'appyStore.controllers', 'appyStore.servic
       .state('categories.audio', {
         url: '/audio',
         templateUrl: 'templates/audio.html',
-        controller:function($scope){
+        controller: function ($scope) {
           $scope.message = "UnderConstruction"
         }
       })
@@ -58,7 +52,7 @@ angular.module('appyStore', ['ionic', 'appyStore.controllers', 'appyStore.servic
       .state('categories.history', {
         url: '/history',
         templateUrl: 'templates/history.html',
-        controller:function($scope){
+        controller: function ($scope) {
           $scope.message = "UnderConstruction"
         }
       })
@@ -71,12 +65,12 @@ angular.module('appyStore', ['ionic', 'appyStore.controllers', 'appyStore.servic
       /*player state for displaying video player with hidden params*/
       .state('player', {
         url: '/player',
-        params:{
-          url:null,
-          poster:null,
-          pcatid:null,
-          catid:null,
-          count:null
+        params: {
+          url: null,
+          poster: null,
+          pcatid: null,
+          catid: null,
+          count: null
         },
         templateUrl: 'templates/videoPlayer.html',
         controller: 'contentCtrl'
@@ -95,7 +89,7 @@ angular.module('appyStore', ['ionic', 'appyStore.controllers', 'appyStore.servic
       .state('search.searchResult', {
         url: '/.searchResult?keyword',
         templateUrl: 'templates/searchResult.html'
-          // controller:'searchCtrl'
+        // controller:'searchCtrl'
       });
     /*Default url for the Routing*/
     $urlRouterProvider.otherwise('/categories/videos');

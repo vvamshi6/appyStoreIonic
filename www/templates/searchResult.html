@@ -4,7 +4,9 @@
 * Date :30-09-2016
 * Purpose : SearchResult page for showing Result
  -->
+
 <div>
+<!--Ion scroll directive for showing the content in the horizontal-->
 	<ion-scroll direction="x">
 		<div style="top:-15px;position:relative;">
 			<div style="display: inline-block " ng-if="x != undefined" ng-repeat="x in data track by $index" class="cardinsearch card-1 col item item-divider item-text-wrap">
@@ -15,6 +17,7 @@
 				<!-- </div> -->
 			</div>
 	</ion-scroll>
+	<!--Ion scroll directive for loading more items and adding-->
 	<ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore(textbox)" distance="10%">
 	</ion-infinite-scroll>
 	</div>
